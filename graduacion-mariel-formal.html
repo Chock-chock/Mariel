@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariel Sosa González · IPN 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --ipn-red: #8B0000;
+  --ipn-red2: #cc0000;
+  --ipn-gold: #C5A028;
+  --black: #0a0a0a;
+  --white: #f8f8f8;
+  --gray: #888;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--black);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── FONDO ── */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(139,0,0,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(139,0,0,0.1) 0%, transparent 60%),
+    #080808;
+}
+
+/* Líneas finas decorativas */
+.lines {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.deco-line {
+  position: absolute;
+  background: rgba(197,160,40,0.08);
+}
+.dl-h { height: 1px; width: 100%; }
+.dl-v { width: 1px; height: 100%; }
+
+/* ── MAIN ── */
+.main {
+  position: relative;
+  z-index: 10;
+  width: min(96vw, 420px);
+  margin: 0 auto;
+  padding: 40px 0 50px;
+}
+
+/* ── SELLO IPN ── */
+.seal-wrap {
+  text-align: center;
+  margin-bottom: 28px;
+  animation: fadeDown .8s cubic-bezier(.22,1,.36,1) both;
+}
+
+.seal {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  border: 2px solid var(--ipn-gold);
+  background: radial-gradient(circle, #1a0000, #0a0a0a);
+  box-shadow: 0 0 0 6px rgba(197,160,40,0.08), 0 0 30px rgba(139,0,0,0.3);
+  position: relative;
+}
+
+.seal::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1px solid rgba(197,160,40,0.3);
+}
+
+.seal-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ipn-gold);
+  letter-spacing: 2px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.seal-year {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ipn-red2);
+  margin-top: 2px;
+}
+
+.ipn-full {
+  margin-top: 10px;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+}
+
+@keyframes fadeDown {
+  from { opacity:0; transform:translateY(-20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 20px 28px;
+  animation: fadeIn .8s .2s both;
+}
+.div-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197,160,40,0.4), transparent);
+}
+.div-diamond {
+  width: 6px; height: 6px;
+  background: var(--ipn-gold);
+  transform: rotate(45deg);
+  opacity: 0.6;
+}
+
+@keyframes fadeIn {
+  from { opacity:0; }
+  to   { opacity:1; }
+}
+
+/* ── DIPLOMA CARD ── */
+.diploma {
+  margin: 0 16px 20px;
+  background: linear-gradient(160deg, #141414, #0e0e0e);
+  border: 1px solid rgba(197,160,40,0.2);
+  border-radius: 4px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  animation: fadeIn .8s .3s both;
+  box-shadow: inset 0 0 60px rgba(139,0,0,0.05);
+}
+
+/* Marco decorativo esquinas */
+.diploma::before, .diploma::after {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  border-color: var(--ipn-gold);
+  border-style: solid;
+  opacity: 0.4;
+}
+.diploma::before { top:8px; left:8px; border-width:1px 0 0 1px; }
+.diploma::after  { bottom:8px; right:8px; border-width:0 1px 1px 0; }
+
+.cert-label {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--ipn-gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.cert-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.cert-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 8vw, 36px);
+  font-style: italic;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 4px;
+  text-shadow: 0 2px 20px rgba(139,0,0,0.3);
+}
+
+.cert-degree {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  margin: 14px 0 6px;
+  line-height: 1.6;
+}
+
+.cert-degree strong {
+  color: rgba(255,255,255,0.75);
+  font-weight: 600;
+}
+
+/* Línea roja IPN -->*/
+.red-line {
+  width: 60px; height: 2px;
+  background: linear-gradient(90deg, var(--ipn-red), var(--ipn-red2));
+  margin: 16px auto;
+  border-radius: 2px;
+}
+
+/* ── FECHA FORMAL ── */
+.date-formal {
+  margin: 0 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  animation: fadeIn .8s .4s both;
+}
+
+.date-formal-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 4px;
+  padding: 14px 24px;
+}
+
+.date-formal-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ipn-red2);
+  line-height: 1;
+}
+
+.date-formal-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.date-month {
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.date-year {
+  font-size: 11px;
+  color: var(--gray);
+  letter-spacing: 3px;
+}
+
+.date-formal-sep {
+  width: 1px; height: 40px;
+  background: rgba(255,255,255,0.1);
+  margin: 0 16px;
+}
+
+.date-formal-label {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--ipn-gold);
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ── CITA ── */
+.quote-formal {
+  margin: 0 16px 20px;
+  padding: 22px 20px;
+  border-left: 3px solid var(--ipn-red);
+  background: rgba(139,0,0,0.06);
+  border-radius: 0 4px 4px 0;
+  animation: fadeIn .8s .5s both;
+}
+
+.quote-formal-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.quote-formal-author {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ipn-gold);
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ── FIRMAS ── */
+.signatures {
+  margin: 0 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  animation: fadeIn .8s .6s both;
+}
+
+.sig-col { text-align: center; flex: 1; }
+
+.sig-line {
+  width: 80px;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+  margin: 0 auto 6px;
+}
+
+.sig-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 2px;
+}
+
+.sig-role {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+}
+
+/* ── BOTÓN ── */
+.btn-wrap {
+  margin: 0 16px 20px;
+  animation: fadeIn .8s .7s both;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: linear-gradient(135deg, var(--ipn-red) 0%, #5a0000 100%);
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 17px 22px;
+  border-radius: 4px;
+  border: 1px solid rgba(197,160,40,0.2);
+  box-shadow: 0 8px 24px rgba(139,0,0,0.4);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: transform .2s, box-shadow .2s;
+}
+.btn:hover  { transform:translateY(-2px); box-shadow:0 12px 32px rgba(139,0,0,0.5); }
+.btn:active { transform:scale(.98); }
+
+.btn-left { display:flex; align-items:center; gap:12px; }
+.btn-icon { font-size:20px; }
+.btn-arrow { font-size:18px; opacity:.7; animation:arrowRight 1.5s ease-in-out infinite; }
+@keyframes arrowRight {
+  0%,100% { transform:translateX(0); }
+  50%      { transform:translateX(5px); }
+}
+
+/* ── FOOTER SELLO ── */
+.footer-seal {
+  text-align: center;
+  margin: 10px 16px 0;
+  animation: fadeIn .8s .8s both;
+}
+
+.footer-gold {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(197,160,40,0.4);
+  text-transform: uppercase;
+}
+
+.footer-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.fdot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--ipn-gold);
+  opacity: 0.3;
+  animation: dotFade 2s ease-in-out infinite;
+}
+.fdot:nth-child(2) { animation-delay:.3s; }
+.fdot:nth-child(3) { animation-delay:.6s; }
+
+@keyframes dotFade {
+  0%,100% { opacity:.15; }
+  50%      { opacity:.6; }
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<!-- Líneas decorativas -->
+<div class="lines">
+  <div class="deco-line dl-h" style="top:15%"></div>
+  <div class="deco-line dl-h" style="top:85%"></div>
+  <div class="deco-line dl-v" style="left:8%"></div>
+  <div class="deco-line dl-v" style="right:8%"></div>
+</div>
+
+<div class="main">
+
+  <!-- Sello IPN -->
+  <div class="seal-wrap">
+    <div class="seal">
+      <div class="seal-text">IPN<br>◆</div>
+      <div class="seal-year">2025</div>
+    </div>
+    <div class="ipn-full">Instituto Politécnico Nacional</div>
+  </div>
+
+  <!-- Divider -->
+  <div class="divider">
+    <div class="div-line"></div>
+    <div class="div-diamond"></div>
+    <div class="div-line"></div>
+  </div>
+
+  <!-- Diploma -->
+  <div class="diploma">
+    <div class="cert-label">◆ Acta de Graduación ◆</div>
+    <div class="cert-title">Se certifica que</div>
+    <div class="cert-name">Mariel Sosa<br>González</div>
+    <div class="red-line"></div>
+    <div class="cert-degree">
+      ha concluido satisfactoriamente la<br>
+      <strong>Licenciatura en Negocios Internacionales</strong><br>
+      en el Instituto Politécnico Nacional
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="divider">
+    <div class="div-line"></div>
+    <div class="div-diamond"></div>
+    <div class="div-line"></div>
+  </div>
+
+  <!-- Fecha -->
+  <div class="date-formal">
+    <div class="date-formal-inner">
+      <div class="date-formal-num">24</div>
+      <div class="date-formal-sep"></div>
+      <div class="date-formal-text">
+        <div class="date-month">Julio</div>
+        <div class="date-year">2025</div>
+      </div>
+      <div class="date-formal-sep"></div>
+      <div class="date-formal-label">Fecha de<br>graduación</div>
+    </div>
+  </div>
+
+  <!-- Cita -->
+  <div class="quote-formal">
+    <div class="quote-formal-text">
+      "Mi preciosísima mujer,<br>nunca dejes de soñar"
+    </div>
+    <div class="quote-formal-author">◆ Con todo el amor de papá</div>
+  </div>
+
+  <!-- Firmas -->
+  <div class="signatures">
+    <div class="sig-col">
+      <div class="sig-line"></div>
+      <div class="sig-name">Marco A. Sosa</div>
+      <div class="sig-role">Padre</div>
+    </div>
+    <div class="sig-col">
+      <div class="sig-line"></div>
+      <div class="sig-name">Mariel Sosa</div>
+      <div class="sig-role">Graduada</div>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="divider">
+    <div class="div-line"></div>
+    <div class="div-diamond"></div>
+    <div class="div-line"></div>
+  </div>
+
+  <!-- Botón -->
+  <div class="btn-wrap">
+    <a class="btn" href="https://photos.app.goo.gl/MMv45ReKcwik9Ysf7" target="_blank">
+      <div class="btn-left">
+        <span class="btn-icon">📸</span>
+        <span>Ver álbum de graduación</span>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-seal">
+    <div class="footer-gold">◆ IPN · Negocios Internacionales · 2025 ◆</div>
+    <div class="footer-dots">
+      <div class="fdot"></div>
+      <div class="fdot"></div>
+      <div class="fdot"></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
